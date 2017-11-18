@@ -2,7 +2,7 @@
   <div class="form">
     <!-- Email validating form -->
     <form *ngIf="emailFormStatus" #form="ngForm" class="login-form">
-      <input required type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [(ngModel)]="loginEmail" name="loginEmail"
+      <input class="animated fadeInDown" required type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [(ngModel)]="loginEmail" name="loginEmail"
         placeholder="Email" #email="ngModel"/>
       <div class="error-msg-div" *ngIf="email.invalid && (email.dirty || email.touched)">
         <div class="animated fadeInDown" *ngIf="email.errors.required">
@@ -18,7 +18,7 @@
 
     <!-- Number validating form -->
     <form *ngIf="numberFormStatus" #form="ngForm" class="login-form">
-        <input required type="number" pattern=".{6,10}"  [(ngModel)]="loginNumber" name="loginNumber"
+        <input class="animated fadeInDown" required type="number" pattern=".{6,10}"  [(ngModel)]="loginNumber" name="loginNumber"
           placeholder="Mobile Number" #number="ngModel"/>
         <div class="error-msg-div" *ngIf="number.invalid && (number.dirty || number.touched)">
           <div class="animated fadeInDown" *ngIf="number.errors.required">
@@ -34,7 +34,7 @@
 
     <!-- OTP validating form -->
     <form *ngIf="otpFormStatus" #form="ngForm" class="login-form">
-        <input required type="number"  [(ngModel)]="loginOTP" name="loginOTP"
+        <input class="animated fadeInDown" required type="number"  [(ngModel)]="loginOTP" name="loginOTP"
           placeholder="Enter OTP" #OTP="ngModel"/>
         <div class="error-msg-div" *ngIf="OTP.invalid && (OTP.dirty || OTP.touched)">
           <div class="animated fadeInDown" *ngIf="OTP.errors.required">

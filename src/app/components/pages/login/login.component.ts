@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
     };
     this._loginService.validateEmail(input)
       .subscribe(response => {
-        console.log(response);
         this.emailResponse = response;
         this.btnStatus = true;
         this.btnLabel = 'Next';
@@ -65,7 +64,6 @@ export class LoginComponent implements OnInit {
     };
     this._loginService.validatePhone(input)
       .subscribe(response => {
-        console.log(response);
         this.phoneResponse = response;
         this.btnStatus = true;
         if (this.phoneResponse.status === 0) {
@@ -91,7 +89,6 @@ export class LoginComponent implements OnInit {
     };
     this._loginService.validateOTP(input)
       .subscribe(response => {
-        console.log(response);
         this.OTPResponse = response;
         this.btnStatus = true;
         this.btnLabel = 'Login';
