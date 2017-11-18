@@ -1,8 +1,50 @@
 <div class="login-page">
   <div class="form">
-    <form class="login-form">
-      <input type="email" placeholder="Email"/>
-      <button>Next</button>
+    <!-- Email validating form -->
+    <form *ngIf="emailFormStatus" #form="ngForm" class="login-form">
+      <input required type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [(ngModel)]="loginEmail" name="loginEmail"
+        placeholder="Email" #email="ngModel"/>
+      <div class="error-msg-div" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div class="animated fadeInDown" *ngIf="email.errors.required">
+          Email is required.
+        </div>
+        <div class="animated fadeInDown" *ngIf="email.errors.pattern">
+          Email is not valid.
+        </div>
+      </div>
+      <button (click)="validateEmail()" [disabled]="form.invalid || !btnStatus">{{btnLabel}}</button>
     </form>
+    <!-- Email validating form -->
+
+    <!-- Number validating form -->
+    <form *ngIf="numberFormStatus" #form="ngForm" class="login-form">
+        <input required type="number" pattern=".{6,10}"  [(ngModel)]="loginNumber" name="loginNumber"
+          placeholder="Mobile Number" #number="ngModel"/>
+        <div class="error-msg-div" *ngIf="number.invalid && (number.dirty || number.touched)">
+          <div class="animated fadeInDown" *ngIf="number.errors.required">
+            Mobile number is required.
+          </div>
+          <div class="animated fadeInDown" *ngIf="number.errors.pattern">
+            Minimum 6 / Maximum 10 characters
+          </div>
+        </div>
+        <button (click)="validatePhone()" [disabled]="form.invalid || !btnStatus">{{btnLabel}}</button>
+      </form>
+    <!-- Number validating form -->
+
+    <!-- OTP validating form -->
+    <form *ngIf="otpFormStatus" #form="ngForm" class="login-form">
+        <input required type="number"  [(ngModel)]="loginOTP" name="loginOTP"
+          placeholder="Enter OTP" #OTP="ngModel"/>
+        <div class="error-msg-div" *ngIf="OTP.invalid && (OTP.dirty || OTP.touched)">
+          <div class="animated fadeInDown" *ngIf="OTP.errors.required">
+            OTP is required
+          </div>
+        </div>
+        <button (click)="validateOTP()" [disabled]="form.invalid || !btnStatus">{{btnLabel}}</button>
+      </form>
+    <!-- OTP validating form -->
+
+
   </div>
 </div>

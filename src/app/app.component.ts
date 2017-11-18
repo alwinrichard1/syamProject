@@ -7,14 +7,14 @@ import { UtilsService } from './utils.service';
   styleUrls: ['./app.component.css'],
   providers: [UtilsService]
 })
-export class AppComponent implements OnInit{
-  loginStatus:boolean = this._utilsService.loginStatus;
-
+export class AppComponent implements OnInit {
+  loginStatus: boolean;
   constructor(
     private _utilsService: UtilsService
   ) { }
 
   ngOnInit() {
-    this._utilsService.checkLoginStatusAndRedirect();
+    this._utilsService.checkTokenStatusAndRedirect();
+    this.loginStatus = this._utilsService.loginStatus;
   }
 }

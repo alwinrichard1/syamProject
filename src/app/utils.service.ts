@@ -3,26 +3,27 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class UtilsService {
+    api_token: string;
 
-    loginStatus: boolean = false;
-    
+    loginStatus = false;
+
     /**Dev environment start */
-    baseUrl:string = 'http://52.66.152.103/systemcore/public/';
+    baseUrl = 'http://52.66.152.103/systemcore/public/';
     /**Dev environment end*/
-
-
 
     constructor(
         private _router: Router
     ) { }
 
-    /**CHECK LOGED IN OR NOT AND REDIRECT */
-    checkLoginStatusAndRedirect(){
-        if(!this.loginStatus){
-            this._router.navigate(['/login']);
-        }else{
+    /**CHECK TOKEN STATUS AND REDIRECT */
+    checkTokenStatusAndRedirect() {
+        this.api_token = localStorage.getItem('api_token');
+        if (this.api_token) {
             this._router.navigate(['/dashboard']);
+            this.loginStatus = true;
+        } else {
+            this._router.navigate(['/login']);
+            this.loginStatus = false;
         }
     }
-
 }
