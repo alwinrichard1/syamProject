@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/pages/dashboard/dashboard.component';    
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { LaunchSurveyComponent } from './components/pages/survey/launchSurvey/launchSurvey.component';
+import { SurveyOverviewComponent } from './components/pages/survey/surveyOverview/surveyOverview.component';
+import { SurveyResultComponent } from './components/pages/survey/surveyResult/surveyResult.component';
 
 
 /** INCLUDE PATH IN ROUTES */
@@ -9,11 +12,14 @@ const routes: Routes = [
     { path: '', component: DashboardComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'survey/launchSurvey', component: LaunchSurveyComponent },
+    { path: 'survey/surveyOverview', component: SurveyOverviewComponent },
+    { path: 'survey/surveyResult', component: SurveyResultComponent },
 ];
 
 @NgModule({
     imports: [
-RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes)
     ],
     exports: [
         RouterModule
@@ -24,5 +30,5 @@ export class AppRoutingModule { }
 
 /**ADD COMPONENTS IN routingComponents */
 export const routingComponents = [
-    DashboardComponent,LoginComponent
-]
+    DashboardComponent, LoginComponent, LaunchSurveyComponent, SurveyOverviewComponent, SurveyResultComponent
+];

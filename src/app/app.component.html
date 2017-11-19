@@ -10,7 +10,7 @@
   <div class="sl-sideleft">
     <label class="sidebar-label">Navigation</label>
     <div class="sl-sideleft-menu">
-      <a href="index.html" class="sl-menu-link active">
+      <a class="sl-menu-link ">
         <div class="sl-menu-item">
           <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
           <span class="menu-item-label">Dashboard</span>
@@ -36,7 +36,7 @@
         </li>
       </ul>
       <!-- sl-menu-link -->
-      <a href="#" class="sl-menu-link">
+      <a href="#" class="sl-menu-link active">
         <div class="sl-menu-item">
           <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
           <span class="menu-item-label">Survey</span>
@@ -47,13 +47,13 @@
       <!-- sl-menu-link -->
       <ul class="sl-menu-sub nav flex-column">
         <li class="nav-item">
-          <a href="" class="nav-link">Survey Overview</a>
+          <a [routerLink]="['survey/surveyOverview']" class="nav-link">Survey Overview</a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">Survey Result</a>
+          <a [routerLink]="['survey/surveyResult']" class="nav-link">Survey Result</a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">Launch Survey</a>
+          <a [routerLink]="['survey/launchSurvey']"class="nav-link">Launch Survey</a>
         </li>
       </ul>
       <a href="widgets.html" class="sl-menu-link">
@@ -186,7 +186,7 @@
   <!-- ########## END: RIGHT PANEL ########## --->
 
   <!-- ########## START: MAIN PANEL ########## -->
-  <div class="sl-mainpanel">
+  <div class="sl-mainpanel content-div">
     <router-outlet></router-outlet>
   </div>
   <!-- sl-mainpanel -->
