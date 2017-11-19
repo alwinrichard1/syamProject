@@ -17,4 +17,16 @@ export class AppComponent implements OnInit {
     this._utilsService.checkTokenStatusAndRedirect();
     this.loginStatus = this._utilsService.loginStatus;
   }
+
+  /**Signout */
+  signout() {
+    if (confirm('Are you sure?')) {
+      localStorage.setItem('api_token', '');
+      localStorage.setItem('company_id', '');
+      localStorage.setItem('user_id', '');
+      this._utilsService.checkTokenStatusAndRedirect();
+      this.loginStatus = false;
+    }
+
+  }
 }
