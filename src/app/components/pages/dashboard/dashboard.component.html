@@ -1,1 +1,81 @@
-<mat-card>Simple card</mat-card>
+<div class="overview-numbers">
+  <mat-progress-bar *ngIf="loaderStatus" mode="indeterminate"></mat-progress-bar>
+  <div *ngIf="dataLoadStatus" class="row user-count-div">
+    <div class="col-sm-4 col-md-4">
+      <mat-card>
+        <h1 class="animated fadeInDown">{{hr}}</h1>
+        HR
+      </mat-card>
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <mat-card>
+        <h1 class="animated fadeInDown">{{manager}}</h1>
+        Managers
+      </mat-card>
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <mat-card>
+        <h1 class="animated fadeInDown">{{employees}}</h1>
+        Employees
+      </mat-card>
+    </div>
+  </div>
+  <mat-card class="container-fluid">
+    <h4>Survey</h4>
+    <hr>
+    <div class="row" *ngIf="dataLoadStatus">
+      <!-- <div class="col-sm-2 col-md-2">
+          <select class="form-control select2" data-placeholder="Choose Browser">
+            <option value="Firefox">All Survey</option>
+            <option value="Chrome">In progress</option>
+            <option value="Safari">Closed</option>
+            <option value="Opera">Requested recieved</option>
+          </select>
+        </div> -->
+      <form #form="ngForm" class="row" >
+        <div class="col-sm-3 col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+            </span>
+            <input required name="from_date" [(ngModel)]="from_date" type="date" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+            </span>
+            <input required name="to_date" [(ngModel)]="to_date" type="date" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <button [disabled]="form.invalid" (click)="fetchSurveyCounts()" mat-raised-button>{{btnLabel}}</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="dataLoadStatus" class="row count-div">
+      <div class="col-sm-4 col-md-4">
+        <mat-card>
+          <h1 class="animated fadeInDown">{{total_count}}</h1>
+          Total survey
+          <hr>
+        </mat-card>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <mat-card>
+          <h1 class="animated fadeInDown">{{pending_count}}</h1>
+          Survey-in-progress
+          <hr>
+        </mat-card>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <mat-card>
+          <h1 class="animated fadeInDown">{{completed_count}}</h1>
+          Survey completed
+          <hr>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>

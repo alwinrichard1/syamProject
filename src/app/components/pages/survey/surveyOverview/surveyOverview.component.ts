@@ -9,13 +9,17 @@ import { UtilsService } from './../../../../utils.service';
   providers: [SurveyService]
 })
 export class SurveyOverviewComponent implements OnInit {
+  surveyDetails: any;
+  type = 0;
+  to_date: any;
+  from_date: any;
   total_count: any;
   pending_count: any;
   completed_count: any;
   loaderStatus = true;
   dataLoadStatus = false;
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+  dataSource = this.surveyDetails;
   api_token = this._utilsService.api_token;
 
   constructor(
@@ -25,6 +29,7 @@ export class SurveyOverviewComponent implements OnInit {
 
   ngOnInit() {
     this.fetchSurveyCounts();
+    this.searchSurvey();
   }
 
   /**Fetch survey counts */
@@ -43,7 +48,25 @@ export class SurveyOverviewComponent implements OnInit {
         } else {
           alert(response.message);
         }
-        console.log(response);
+      });
+  }
+
+  /**searchSurvey */
+  searchSurvey() {
+    const input = {
+      'api_token': this.api_token,
+      'from_date': this.from_date,
+      'to_date': this.to_date,
+      'type': this.type,
+    };
+    this._surveyService.searchSurvey(input)
+      .subscribe(response => {
+        if (response.status === 1) {
+          this.surveyDetails = response.data;
+          console.log(this.surveyDetails);
+        } else {
+          alert(response.message);
+        }
       });
   }
 

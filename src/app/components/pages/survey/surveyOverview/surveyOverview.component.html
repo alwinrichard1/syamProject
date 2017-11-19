@@ -36,11 +36,10 @@
     <div class="row">
       <div class="col-sm-2 col-md-2">
         <select class="form-control select2" data-placeholder="Choose Browser">
-          <option value="Firefox">Firefox</option>
-          <option value="Chrome">Chrome</option>
-          <option value="Safari">Safari</option>
-          <option value="Opera">Opera</option>
-          <option value="Internet Explorer">Internet Explorer</option>
+          <option value="Firefox">All Survey</option>
+          <option value="Chrome">In progress</option>
+          <option value="Safari">Closed</option>
+          <option value="Opera">Requested recieved</option>
         </select>
       </div>
       <div class="col-sm-2 col-md-2">
@@ -74,25 +73,25 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Office </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
         </ng-container>
 
         <!-- Color Column -->
         <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
         </ng-container>
 
