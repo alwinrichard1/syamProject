@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { UtilsService } from './../../../utils.service';
 
 @Injectable()
-export class LoginService implements OnInit {
+export class LoginService{
     baseUrl: string = this._utilsService.baseUrl;
     path: string;
 
@@ -12,9 +12,6 @@ export class LoginService implements OnInit {
         private _http: Http,
         private _utilsService: UtilsService
     ) { }
-
-    ngOnInit() {
-    }
 
     /**Validate email */
     validateEmail(input: any) {

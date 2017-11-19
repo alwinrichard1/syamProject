@@ -1,20 +1,27 @@
 <div class="overview-numbers">
+  <mat-progress-bar *ngIf="loaderStatus" mode="indeterminate"></mat-progress-bar>
   <mat-card class="container-fluid">
     <h4>Survey</h4>
     <hr>
-    <div class="row">
+    <div *ngIf="dataLoadStatus" class="row">
       <div class="col-sm-4 col-md-4">
-        <mat-card>Total survey
+        <mat-card>
+          <h1>{{total_count}}</h1>
+          Total survey
           <hr>
         </mat-card>
       </div>
       <div class="col-sm-4 col-md-4">
-        <mat-card>Survey-in-progress
+        <mat-card>
+          <h1>{{pending_count}}</h1>
+          Survey-in-progress
           <hr>
         </mat-card>
       </div>
       <div class="col-sm-4 col-md-4">
-        <mat-card>Survey completed
+        <mat-card>
+          <h1>{{completed_count}}</h1>
+          Survey completed
           <hr>
         </mat-card>
       </div>
@@ -22,9 +29,77 @@
   </mat-card>
 </div>
 
-<div class="overview-status">
+<div *ngIf="dataLoadStatus" class="overview-status">
   <mat-card class="container-fluid">
     <h4>Survey</h4>
     <hr>
+    <div class="row">
+      <div class="col-sm-2 col-md-2">
+        <select class="form-control select2" data-placeholder="Choose Browser">
+          <option value="Firefox">Firefox</option>
+          <option value="Chrome">Chrome</option>
+          <option value="Safari">Safari</option>
+          <option value="Opera">Opera</option>
+          <option value="Internet Explorer">Internet Explorer</option>
+        </select>
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+          </span>
+          <input type="text" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+          </span>
+          <input type="text" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <button mat-raised-button>Filter</button>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <button mat-raised-button>Launch New Survey</button>
+      </div>
+    </div>
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
   </mat-card>
 </div>

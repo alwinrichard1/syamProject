@@ -26,4 +26,11 @@ export class UtilsService {
             this.loginStatus = false;
         }
     }
+
+
+    /**FETCH API TOKEN */
+    fetchToken() {
+        this.api_token = localStorage.getItem('api_token');
+    }
+
 }

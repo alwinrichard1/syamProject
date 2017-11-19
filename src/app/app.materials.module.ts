@@ -1,7 +1,9 @@
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatTableModule, MatProgressBarModule } from '@angular/material';
 
 
 export const materialImports = [
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatProgressBarModule
 ];
