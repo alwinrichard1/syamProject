@@ -13,6 +13,7 @@ export class SurveyOverviewComponent implements OnInit {
   surveyDetails: any;
   type = 0;
   to_date: any;
+  btnLabel = 'Filter'
   from_date: any;
   total_count: any;
   pending_count: any;
@@ -54,6 +55,7 @@ export class SurveyOverviewComponent implements OnInit {
 
   /**searchSurvey */
   searchSurvey() {
+    this.btnLabel = 'Filtering...'
     const input = {
       'api_token': this.api_token,
       'from_date': this.from_date,
@@ -62,6 +64,7 @@ export class SurveyOverviewComponent implements OnInit {
     };
     this._surveyService.searchSurvey(input)
       .subscribe(response => {
+        this.btnLabel = 'Filter';
         if (response.status === 1) {
           this.surveyDetails = response.data;
           this.dataSource = new MatTableDataSource<Element>(this.surveyDetails);

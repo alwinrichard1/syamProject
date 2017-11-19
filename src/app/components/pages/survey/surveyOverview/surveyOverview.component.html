@@ -6,21 +6,21 @@
     <div *ngIf="dataLoadStatus" class="row">
       <div class="col-sm-4 col-md-4">
         <mat-card>
-          <h1>{{total_count}}</h1>
+          <h1 class="animated fadeInDown">{{total_count}}</h1>
           Total survey
           <hr>
         </mat-card>
       </div>
       <div class="col-sm-4 col-md-4">
         <mat-card>
-          <h1>{{pending_count}}</h1>
+          <h1 class="animated fadeInDown">{{pending_count}}</h1>
           Survey-in-progress
           <hr>
         </mat-card>
       </div>
       <div class="col-sm-4 col-md-4">
         <mat-card>
-          <h1>{{completed_count}}</h1>
+          <h1 class="animated fadeInDown">{{completed_count}}</h1>
           Survey completed
           <hr>
         </mat-card>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="col-sm-2 col-md-2">
-        <button (click)="searchSurvey()" mat-raised-button>Filter</button>
+        <button (click)="searchSurvey()" mat-raised-button>{{btnLabel}}</button>
       </div>
       <div class="col-sm-2 col-md-2">
         <button mat-raised-button>Launch New Survey</button>
