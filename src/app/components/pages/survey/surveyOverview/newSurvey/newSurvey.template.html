@@ -1,0 +1,95 @@
+<div [hidden]="!surveyDetailsForm">
+  <h4>Launch new survey</h4>
+  <form #form1="ngForm">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Title</label>
+        <input required class="form-control" type="text" name="title" [(ngModel)]="title">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Description:</label>
+        <textarea required class="form-control" type="text" name="description" [(ngModel)]="description"></textarea>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Start Date:</label>
+        <input required class="form-control" type="date" name="start_date" [(ngModel)]="start_date">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">End Date:</label>
+        <input required class="form-control" type="date" name="end_date" [(ngModel)]="end_date">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Welcome message:</label>
+        <textarea required class="form-control" type="text" name="welcome_message" [(ngModel)]="welcome_message"></textarea>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">End message:</label>
+        <textarea required class="form-control" type="text" name="end_message" [(ngModel)]="end_message"></textarea>
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <button [disabled]="form1.invalid" (click)="showAddQuestion()" mat-raised-button>Next</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div [hidden]="!addQuestionForm">
+  <h4>Add question to {{title}}</h4>
+  <form #form="ngForm">
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="form-control-label">Question</label>
+        <textarea required class="form-control" type="text" name="question" [(ngModel)]="question"></textarea>
+      </div>
+      <div class="form-group col-sm-3 col-md-3">
+        <label class="form-control-label">Answer Input</label>
+        <select [(ngModel)]="answer_input" name="answer_input" class="form-control select2">
+          <option value="1">Text Input</option>
+          <option value="2">Mulitple Choice</option>
+          <option value="3">Single Choice</option>
+          <option value="4"> Point Scale</option>
+          <option value="5"> Image Input</option>
+          <option value="6"> Emoji</option>
+          <option value="7"> Ranking</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3 col-md-3">
+        <label class="form-control-label">Theme</label>
+        <select [(ngModel)]="theme" name="theme" class="form-control select2">
+          <option value="1">Top down communication</option>
+          <option value="2">Bottom up Communication</option>
+          <option value="7">Perfomance Management</option>
+          <option value="8">Fair treatment</option>
+          <option value="9">Competent Manager</option>
+          <option value="10">Work Allocation</option>
+          <option value="11">Company Vision</option>
+          <option value="12">Job Security</option>
+          <option value="13">Ethical Practices</option>
+          <option value="14">Training</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3 col-md-3">
+        <label class="form-control-label">Categories</label>
+        <select [(ngModel)]="category" name="category" class="form-control select2">
+          <option value="1">Category 1</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3 col-md-3">
+        <label class="form-control-label">Sub Categories</label>
+        <select [(ngModel)]="sub-category" name="sub-category" class="form-control select2">
+          <option value="1">Category 2</option>
+        </select>
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <button class="add-statement" mat-raised-button>Add statement</button>
+      </div>
+      <hr>
+      <div class="col-sm-2 col-md-2">
+        <button mat-raised-button>Save</button>
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <button mat-raised-button>Preview</button>
+      </div>
+    </div>
+  </form>
+</div>

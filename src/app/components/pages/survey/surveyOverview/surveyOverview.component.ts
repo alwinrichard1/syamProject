@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { SurveyService } from './../survey.service';
 import { UtilsService } from './../../../../utils.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { NewSurveyDialog } from './newSurvey/newSurvey.template';
 
 @Component({
   templateUrl: './surveyOverview.component.html',
@@ -13,7 +15,7 @@ export class SurveyOverviewComponent implements OnInit {
   surveyDetails: any;
   type = 0;
   to_date: any;
-  btnLabel = 'Filter'
+  btnLabel = 'Filter';
   from_date: any;
   total_count: any;
   pending_count: any;
@@ -26,7 +28,8 @@ export class SurveyOverviewComponent implements OnInit {
 
   constructor(
     private _surveyService: SurveyService,
-    private _utilsService: UtilsService
+    private _utilsService: UtilsService,
+    public _dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -55,7 +58,7 @@ export class SurveyOverviewComponent implements OnInit {
 
   /**searchSurvey */
   searchSurvey() {
-    this.btnLabel = 'Filtering...'
+    this.btnLabel = 'Filtering...';
     const input = {
       'api_token': this.api_token,
       'from_date': this.from_date,
@@ -73,6 +76,18 @@ export class SurveyOverviewComponent implements OnInit {
           alert(response.message);
         }
       });
+  }
+
+  /**Open New Survey template */
+  openDialog(): void {
+    const dialogRef = this._dialog.open(NewSurveyDialog, {
+      width: '800px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

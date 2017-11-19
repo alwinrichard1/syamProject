@@ -7,11 +7,13 @@ import { AppRoutingModule, routingComponents } from './app.routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { materialImports } from './app.materials.module';
+import { templateDeclaration, templateEntry } from './app.templates.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    templateDeclaration
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,9 @@ import { materialImports } from './app.materials.module';
     HttpModule,
     BrowserAnimationsModule,
     materialImports
+  ],
+  entryComponents: [
+    templateEntry
   ],
   providers: [],
   bootstrap: [AppComponent]
