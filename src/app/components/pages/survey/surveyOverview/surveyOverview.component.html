@@ -35,33 +35,33 @@
     <hr>
     <div class="row">
       <div class="col-sm-2 col-md-2">
-        <select class="form-control select2" data-placeholder="Choose Browser">
-          <option value="Firefox">All Survey</option>
-          <option value="Chrome">In progress</option>
-          <option value="Safari">Closed</option>
-          <option value="Opera">Requested recieved</option>
+        <select [(ngModel)]="type" name="type" class="form-control select2" data-placeholder="Choose Browser">
+          <option value="0">All Survey</option>
+          <option value="1">In progress</option>
+          <option value="2">Closed</option>
+          <option value="3">Requested recieved</option>
         </select>
       </div>
-      <div class="col-sm-2 col-md-2">
+      <div class="col-sm-3 col-md-3">
         <div class="input-group">
           <span class="input-group-addon">
             <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
           </span>
-          <input type="text" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+          <input [(ngModel)]="from_date" name="from_date" type="date" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
         </div>
       </div>
-      <div class="col-sm-2 col-md-2">
+      <div class="col-sm-3 col-md-3">
         <div class="input-group">
           <span class="input-group-addon">
             <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
           </span>
-          <input type="text" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
+          <input [(ngModel)]="to_date" name="to_date" type="date" class="form-control fc-datepicker" placeholder="MM/DD/YYYY">
         </div>
       </div>
-      <div class="col-sm-3 col-md-3">
-        <button mat-raised-button>Filter</button>
+      <div class="col-sm-2 col-md-2">
+        <button (click)="searchSurvey()" mat-raised-button>Filter</button>
       </div>
-      <div class="col-sm-3 col-md-3">
+      <div class="col-sm-2 col-md-2">
         <button mat-raised-button>Launch New Survey</button>
       </div>
     </div>
@@ -72,28 +72,32 @@
                 The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> Survey Tittle </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        <ng-container matColumnDef="start_date">
+          <mat-header-cell *matHeaderCellDef> Launch Date</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.start_date}} </mat-cell>
         </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Office </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        <ng-container matColumnDef="end_date">
+          <mat-header-cell *matHeaderCellDef> End Date</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.end_date}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="survey_response_count">
+          <mat-header-cell *matHeaderCellDef> Response Count</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.survey_response_count}} </mat-cell>
         </ng-container>
 
-        <!-- Color Column -->
-        <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-        </ng-container>
+
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
