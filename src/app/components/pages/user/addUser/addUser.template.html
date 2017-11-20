@@ -1,0 +1,30 @@
+<div>
+  <h4>Add new user</h4>
+  <form #form1="ngForm">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Name</label>
+        <input required class="form-control" type="text">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Email</label>
+        <input required class="form-control" type="text">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Mobile number</label>
+        <input required class="form-control" type="text">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Designation</label>
+        <input required class="form-control" type="text">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="form-control-label">Company Name</label>
+        <input required class="form-control" type="text">
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <button [disabled]="form1.invalid" mat-raised-button>Add</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+button {
+    background-color: #aa2631;
+    width: 100%;
+    color: white;
+    font-weight: 100;
+  }
+  
+  .add-statement {
+    width: 30%;
+    float: right;
+  }
+  

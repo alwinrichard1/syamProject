@@ -1,4 +1,7 @@
-import { MatButtonModule, MatCardModule, MatTableModule, MatProgressBarModule, MatDialogModule } from '@angular/material';
+import {
+    MatButtonModule, MatCardModule, MatTableModule, MatProgressBarModule, MatDialogModule,
+    MatDatepickerModule
+} from '@angular/material';
 
 
 export const materialImports = [
@@ -6,5 +9,6 @@ export const materialImports = [
     MatCardModule,
     MatTableModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
 ];
