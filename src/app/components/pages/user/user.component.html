@@ -1,0 +1,58 @@
+<div class="overview-numbers">
+  <mat-progress-bar *ngIf="loaderStatus" mode="indeterminate"></mat-progress-bar>
+  <mat-card class="container-fluid">
+    <h4>Users</h4>
+    <hr>
+    <div class="row">
+      <div class="col-sm-4 col-md-4">
+        <mat-card>
+          <h1 class="animated fadeInDown">101</h1>
+          Total users
+          <hr>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div class="overview-status">
+  <mat-card class="container-fluid">
+    <h4>Users</h4>
+    <hr>
+    <div>
+      <div class="col-sm-2 col-md-2">
+        <button mat-raised-button>Add User</button>
+      </div>
+    </div>
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Designation </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card>
+</div>

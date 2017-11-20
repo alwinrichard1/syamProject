@@ -1,0 +1,23 @@
+.overview-numbers {
+  margin-bottom: 3%;
+}
+
+button {
+  background-color: #aa2631;
+  width: 100%;
+  color: white;
+  font-weight: 100;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  margin-top: 20px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
